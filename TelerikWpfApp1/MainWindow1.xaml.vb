@@ -154,7 +154,8 @@ Class MainWindow1
                 cv.InkCanvas1.EditingMode = InkCanvasEditingMode.EraseByPoint
             End If
         End Select
-        Edit_Mode=e
+        Edit_Mode = e
+        cv.Edit_Mode = e
     End Sub
     Private Sub Cursor_Selected(sender As Object, e As RoutedEventArgs)
         Set_Edit_Mode(Edit_Mode_Enum.Cursor)

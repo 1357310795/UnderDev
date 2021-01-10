@@ -2,16 +2,14 @@
 Imports System.Runtime.InteropServices
 Imports System.Threading
 Imports System.Windows.Media.Animation
-
+Public Enum Edit_Mode_Enum As Integer
+    Cursor = 1
+    Pen = 2
+    Marker = 4
+    Eraser = 8
+    Selectt = 16
+End Enum
 Module Module2
-    Public Enum Edit_Mode_Enum As Integer
-        Cursor = 1
-        Pen = 2
-        Marker = 4
-        Eraser = 8
-        Selectt = 16
-    End Enum
-
     Public Sub SaveFrameworkElementToImage(ByVal ui As FrameworkElement, ByVal filepath As String)
         Try
             Dim ms As FileStream = New FileStream(filepath, FileMode.Create)

@@ -146,7 +146,7 @@ Public Class BoardView
             Return
         End If
 
-        If now_state = Now_state_enum.Pen Then
+        If Edit_Mode = Edit_Mode_Enum.Pen Then
             _addingStroke = New Stroke(New StylusPointCollection(New List(Of StylusPoint) From {
                 New StylusPoint(point.X, point.Y, 0.5)
             }), InkCanvas1.DefaultDrawingAttributes.Clone)
@@ -168,7 +168,7 @@ Public Class BoardView
             Return
         End If
 
-        If now_state = Now_state_enum.Pen Then
+        If Edit_Mode = Edit_Mode_Enum.Pen Then
             Dim touchPoint = touchEventArgs.GetTouchPoint(Me)
             Dim spc As StylusPointCollection = _currentCanvasStrokes(touchPoint.TouchDevice.Id).StylusPoints
             Console.WriteLine(spc.Count)
@@ -199,7 +199,7 @@ Public Class BoardView
             Return
         End If
 
-        If now_state = Now_state_enum.Pen Then
+        If Edit_Mode = Edit_Mode_Enum.Pen Then
             If _currentCanvasStrokes.ContainsKey(touchPoint.TouchDevice.Id) Then
                 Dim stroke = _currentCanvasStrokes(touchPoint.TouchDevice.Id)
                 Dim nearbyPoint = IsNearbyPoint(stroke, point)
@@ -229,7 +229,7 @@ Public Class BoardView
         Console.WriteLine("OnMouseDown")
         If e.StylusDevice IsNot Nothing Then Return
         Dim point = e.GetPosition(InkCanvas1)
-        If now_state = Now_state_enum.Pen Then
+        If Edit_Mode = Edit_Mode_Enum.Pen Then
             InkCanvas1.EditingMode = InkCanvasEditingMode.Ink
             InkCanvas1.CaptureMouse()
         End If
@@ -238,7 +238,7 @@ Public Class BoardView
     Private Sub OnMouseUp(ByVal sender As Object, ByVal e As MouseEventArgs)
         Console.WriteLine("OnMouseUp")
         If e.StylusDevice IsNot Nothing Then Return
-        If now_state = Now_state_enum.Pen Then
+        If Edit_Mode = Edit_Mode_Enum.Pen Then
             InkCanvas1.EditingMode = InkCanvasEditingMode.None
             InkCanvas1.ReleaseMouseCapture()
         End If
