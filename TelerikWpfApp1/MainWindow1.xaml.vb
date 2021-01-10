@@ -10,10 +10,11 @@ Class MainWindow1
     Public eraser As DrawingAttributes
     Public settingwindow As UserControl
     Public Edit_Mode as Edit_Mode_Enum
+    Public App_Mode As App_Mode_Enum
 
     Private Save_leftclicked As Boolean
     Private InitAniTimer As New Timer
-    Private backcolors As Color()
+
     Private el As Ellipse
     Private r As New Random
 
@@ -51,54 +52,18 @@ Class MainWindow1
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
         save_queue = New List(Of save_task)
-        cv.InkCanvas1.DefaultDrawingAttributes = pen
 
-        'backcolors = {
-        '    Color.FromRgb(239, 154, 154),
-        '    Color.FromRgb(244, 143, 177),
-        '    Color.FromRgb(206, 147, 216),
-        '    Color.FromRgb(179, 157, 219),
-        '    Color.FromRgb(159, 168, 218),
-        '    Color.FromRgb(144, 202, 249),
-        '    Color.FromRgb(129, 212, 250),
-        '    Color.FromRgb(128, 222, 234),
-        '    Color.FromRgb(128, 203, 196),
-        '    Color.FromRgb(165, 214, 167),
-        '    Color.FromRgb(197, 225, 165),
-        '    Color.FromRgb(230, 238, 156),
-        '    Color.FromRgb(255, 245, 157),
-        '    Color.FromRgb(255, 224, 130),
-        '    Color.FromRgb(255, 204, 128),
-        '    Color.FromRgb(255, 171, 145),
-        '    Color.FromRgb(188, 170, 164),
-        '    Color.FromRgb(176, 190, 197)
-        '    }
-        backcolors = {
-            Color.FromRgb(229, 57, 53),
-            Color.FromRgb(216, 27, 96),
-            Color.FromRgb(142, 36, 170),
-            Color.FromRgb(94, 53, 177),
-            Color.FromRgb(57, 73, 171),
-            Color.FromRgb(30, 136, 229),
-            Color.FromRgb(3, 155, 229),
-            Color.FromRgb(0, 172, 193),
-            Color.FromRgb(0, 137, 123),
-            Color.FromRgb(67, 160, 71),
-            Color.FromRgb(124, 179, 66),
-            Color.FromRgb(192, 202, 51),
-            Color.FromRgb(253, 216, 53),
-            Color.FromRgb(255, 179, 0),
-            Color.FromRgb(251, 140, 0),
-            Color.FromRgb(244, 81, 30),
-            Color.FromRgb(109, 76, 65),
-            Color.FromRgb(84, 110, 122)}
 
+    End Sub
+
+#Region "Init"
+    Private Sub init()
         BackCanvas.Background = New SolidColorBrush(backcolors(r.Next(0, backcolors.Length)))
+        InitPage.Visibility = Visibility.Visible
         InitAniTimer.Interval = 100
         AddHandler InitAniTimer.Elapsed, AddressOf InitAni
         InitAniTimer.Start()
     End Sub
-
     Private Sub InitAni(sender As Object, e As EventArgs)
         InitAniTimer.Stop()
         Me.Dispatcher.BeginInvoke(New Action(AddressOf addEllipse))
@@ -134,25 +99,30 @@ Class MainWindow1
     Private Sub aniCompleted(sender As Object, e As EventArgs)
         Me.Dispatcher.BeginInvoke(New Action(AddressOf removeEllipse))
     End Sub
-
+#End Region
 #Region "listboxTools"
     Public Sub Set_Edit_Mode(e As Edit_Mode_Enum)
         Select Case e
-        case Edit_Mode_Enum.Cursor
-            cv.InkCanvas1.EditingMode = InkCanvasEditingMode.None
-        case Edit_Mode_Enum.Pen
-            cv.InkCanvas1.EditingMode = InkCanvasEditingMode.None
-            cv.InkCanvas1.DefaultDrawingAttributes = pen
-        case Edit_Mode_Enum.Selectt
-            cv.InkCanvas1.EditingMode = InkCanvasEditingMode.Select
-        case Edit_Mode_Enum.Marker
-            cv.InkCanvas1.EditingMode = InkCanvasEditingMode.Ink
-            cv.InkCanvas1.DefaultDrawingAttributes = marker
-        case Edit_Mode_Enum.Eraser
-            If cv.InkCanvas1.EditingMode <> InkCanvasEditingMode.EraseByStroke And
-                cv.InkCanvas1.EditingMode <> InkCanvasEditingMode.EraseByPoint Then
-                cv.InkCanvas1.EditingMode = InkCanvasEditingMode.EraseByPoint
-            End If
+            Case Edit_Mode_Enum.Cursor
+                cv.InkCanvas1.EditingMode = InkCanvasEditingMode.None
+                CursorRadioButton.IsChecked = True
+            Case Edit_Mode_Enum.Pen
+                cv.InkCanvas1.EditingMode = InkCanvasEditingMode.None
+                cv.InkCanvas1.DefaultDrawingAttributes = pen
+                PenRadioButton.IsChecked = True
+            Case Edit_Mode_Enum.Selectt
+                cv.InkCanvas1.EditingMode = InkCanvasEditingMode.Select
+                SelectRadioButton.IsChecked = True
+            Case Edit_Mode_Enum.Marker
+                cv.InkCanvas1.EditingMode = InkCanvasEditingMode.Ink
+                cv.InkCanvas1.DefaultDrawingAttributes = marker
+                MarkerRadioButton.IsChecked = True
+            Case Edit_Mode_Enum.Eraser
+                If cv.InkCanvas1.EditingMode <> InkCanvasEditingMode.EraseByStroke And
+                    cv.InkCanvas1.EditingMode <> InkCanvasEditingMode.EraseByPoint Then
+                    cv.InkCanvas1.EditingMode = InkCanvasEditingMode.EraseByPoint
+                End If
+                EraserRadioButton.IsChecked = True
         End Select
         Edit_Mode = e
         cv.Edit_Mode = e
@@ -234,6 +204,7 @@ Class MainWindow1
     End Sub
 
 #End Region
+#Region "Save"
     Private Async Function create_save_task() As Task
         If CType(GetKeyValue("QuickSave", "enabled", "false", inipath), Boolean) Then
             Dim path = GetKeyValue("QuickSave", "LastSavePath", Environment.GetFolderPath(Environment.SpecialFolder.Desktop), inipath)
@@ -283,20 +254,8 @@ Class MainWindow1
             NotiStackPanel.Children.Add(sn)
         End Try
     End Sub
-
-    Private Async Sub ButtonExit_Click(sender As Object, e As RoutedEventArgs)
-        Dim res As String
-        res = Await MaterialDesignThemes.Wpf.DialogHost.Show(New YesNoDialog(300, "确定退出？"), "MainDialogHost1")
-        Console.WriteLine(res)
-        If res = "OK" Then
-            Application.Current.Shutdown()
-        End If
-    End Sub
-
-    Private Sub ButtonMini_Click(sender As Object, e As RoutedEventArgs)
-        Me.WindowState = WindowState.Minimized
-    End Sub
-
+#End Region
+#Region "PageControl"
     Private Sub ButtonPre_Click(sender As Object, e As RoutedEventArgs)
         cv.PrevPage()
         TextPage.Text = cv.getlabel
@@ -338,5 +297,18 @@ Class MainWindow1
         If CType(sender, Button) Is WhiteBG Then
             pen.Color = Colors.Black
         End If
+    End Sub
+#End Region
+    Private Async Sub ButtonExit_Click(sender As Object, e As RoutedEventArgs)
+        Dim res As String
+        res = Await MaterialDesignThemes.Wpf.DialogHost.Show(New YesNoDialog(300, "确定退出？"), "MainDialogHost1")
+        Console.WriteLine(res)
+        If res = "OK" Then
+            Application.Current.Shutdown()
+        End If
+    End Sub
+
+    Private Sub ButtonMini_Click(sender As Object, e As RoutedEventArgs)
+        Me.WindowState = WindowState.Minimized
     End Sub
 End Class

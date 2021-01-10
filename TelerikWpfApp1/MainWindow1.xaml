@@ -37,7 +37,8 @@
                                     <TranslateTransform Y="0"/>
                                 </TransformGroup>
                             </StackPanel.RenderTransform>
-                            <RadioButton Style="{StaticResource ListBoxItemStyle}"
+                            <RadioButton x:Name="CursorRadioButton"
+                                         Style="{StaticResource ListBoxItemStyle}"
                                          IsChecked="False" Tag="Cursor"
                                          GroupName="Tools" Checked="Cursor_Selected">
                                 <Grid Margin="5,2">
@@ -50,7 +51,8 @@
                                     <TextBlock HorizontalAlignment="Center" Grid.Row="1" Text="移动" Margin="0,5,0,0" FontSize="14"/>
                                 </Grid>
                             </RadioButton>
-                            <RadioButton Style="{StaticResource ListBoxItemStyle}"
+                            <RadioButton x:Name="SelectRadioButton"
+                                         Style="{StaticResource ListBoxItemStyle}"
                                          IsChecked="False" Tag="select"
                                          GroupName="Tools" Checked="Select_Selected">
                                 <Grid Margin="5,2">
@@ -63,8 +65,9 @@
                                     <TextBlock HorizontalAlignment="Center" Grid.Row="1" Text="选择" Margin="0,5,0,0" FontSize="14"/>
                                 </Grid>
                             </RadioButton>
-                            <RadioButton Style="{StaticResource ListBoxItemStyle}"
-                                         IsChecked="True" Tag="Pen" x:Name="PenRadioButton"
+                            <RadioButton x:Name="PenRadioButton"
+                                         Style="{StaticResource ListBoxItemStyle}"
+                                         IsChecked="True" Tag="Pen" 
                                          GroupName="Tools" Checked="Pen_Selected">
                                 <Grid Margin="5,2">
                                     <Grid.RowDefinitions>
@@ -88,7 +91,8 @@
                                     </materialDesign:PopupBox>
                                 </Grid>
                             </RadioButton>
-                            <RadioButton Style="{StaticResource ListBoxItemStyle}"
+                            <RadioButton x:Name="MarkerRadioButton"
+                                         Style="{StaticResource ListBoxItemStyle}"
                                          IsChecked="False" Tag="Marker"
                                          GroupName="Tools" Checked="Marker_Selected">
                                 <Grid Margin="5,2">
@@ -113,7 +117,8 @@
                                     </materialDesign:PopupBox>
                                 </Grid>
                             </RadioButton>
-                            <RadioButton Style="{StaticResource ListBoxItemStyle}"
+                            <RadioButton x:Name="EraserRadioButton"
+                                         Style="{StaticResource ListBoxItemStyle}"
                                          IsChecked="False" Tag="Eraser"
                                          GroupName="Tools" Checked="Eraser_Selected">
                                 <Grid Margin="5,2">
@@ -295,7 +300,7 @@
                       Margin="10" RenderTransformOrigin="0.5,0.5">
                     <Image Source="logo.png" Height="30" Width="267" Opacity="0.2" IsHitTestVisible="False"/>
                 </Grid>
-                <Grid x:Name="InitPage">
+                <Grid x:Name="InitPage" Visibility="Hidden">
                     <Grid.Background>
                         <VisualBrush AlignmentX="Left" AlignmentY="Top" Stretch="None" ViewboxUnits="Absolute">
                             <VisualBrush.Visual>

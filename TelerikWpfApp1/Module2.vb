@@ -9,7 +9,31 @@ Public Enum Edit_Mode_Enum As Integer
     Eraser = 8
     Selectt = 16
 End Enum
+Public Enum App_Mode_Enum As Integer
+    PPT = 1
+    Board = 2
+    Camera = 4
+End Enum
 Module Module2
+    Public backcolors As Color() = {
+            Color.FromRgb(229, 57, 53),
+            Color.FromRgb(216, 27, 96),
+            Color.FromRgb(142, 36, 170),
+            Color.FromRgb(94, 53, 177),
+            Color.FromRgb(57, 73, 171),
+            Color.FromRgb(30, 136, 229),
+            Color.FromRgb(3, 155, 229),
+            Color.FromRgb(0, 172, 193),
+            Color.FromRgb(0, 137, 123),
+            Color.FromRgb(67, 160, 71),
+            Color.FromRgb(124, 179, 66),
+            Color.FromRgb(192, 202, 51),
+            Color.FromRgb(253, 216, 53),
+            Color.FromRgb(255, 179, 0),
+            Color.FromRgb(251, 140, 0),
+            Color.FromRgb(244, 81, 30),
+            Color.FromRgb(109, 76, 65),
+            Color.FromRgb(84, 110, 122)}
     Public Sub SaveFrameworkElementToImage(ByVal ui As FrameworkElement, ByVal filepath As String)
         Try
             Dim ms As FileStream = New FileStream(filepath, FileMode.Create)
