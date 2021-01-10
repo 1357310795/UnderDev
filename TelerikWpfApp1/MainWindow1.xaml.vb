@@ -135,34 +135,44 @@ Class MainWindow1
     End Sub
 
 #Region "listboxTools"
+    Public Sub Set_Edit_Mode(e As Edit_Mode_Enum)
+        Select Case e
+        case Edit_Mode_Enum.Cursor
+            cv.InkCanvas1.EditingMode = InkCanvasEditingMode.None
+        case Edit_Mode_Enum.Pen
+            cv.InkCanvas1.EditingMode = InkCanvasEditingMode.None
+            cv.InkCanvas1.DefaultDrawingAttributes = pen
+        case Edit_Mode_Enum.Selectt
+            cv.InkCanvas1.EditingMode = InkCanvasEditingMode.Select
+        case Edit_Mode_Enum.Marker
+            cv.InkCanvas1.EditingMode = InkCanvasEditingMode.Ink
+            cv.InkCanvas1.DefaultDrawingAttributes = marker
+        case Edit_Mode_Enum.Eraser
+            If cv.InkCanvas1.EditingMode <> InkCanvasEditingMode.EraseByStroke And
+                cv.InkCanvas1.EditingMode <> InkCanvasEditingMode.EraseByPoint Then
+                cv.InkCanvas1.EditingMode = InkCanvasEditingMode.EraseByPoint
+            End If
+        End Select
+        Edit_Mode=e
+    End Sub
     Private Sub Cursor_Selected(sender As Object, e As RoutedEventArgs)
-        cv.InkCanvas1.EditingMode = InkCanvasEditingMode.None
-        cv.now_state = BoardView.Now_state_enum.Cursor
+        Set_Edit_Mode(Edit_Mode_Enum.Cursor)
     End Sub
 
     Private Sub Pen_Selected(sender As Object, e As RoutedEventArgs)
-        cv.InkCanvas1.EditingMode = InkCanvasEditingMode.None
-        cv.InkCanvas1.DefaultDrawingAttributes = pen
-        cv.now_state = BoardView.Now_state_enum.Pen
+        Set_Edit_Mode(Edit_Mode_Enum.Pen)
     End Sub
 
     Private Sub Select_Selected(sender As Object, e As RoutedEventArgs)
-        cv.InkCanvas1.EditingMode = InkCanvasEditingMode.Select
-        cv.now_state = BoardView.Now_state_enum.Selectt
+        Set_Edit_Mode(Edit_Mode_Enum.Selectt)
     End Sub
 
     Private Sub Marker_Selected(sender As Object, e As RoutedEventArgs)
-        cv.InkCanvas1.EditingMode = InkCanvasEditingMode.Ink
-        cv.InkCanvas1.DefaultDrawingAttributes = marker
-        cv.now_state = BoardView.Now_state_enum.Marker
+        Set_Edit_Mode(Edit_Mode_Enum.Marker)
     End Sub
 
     Private Sub Eraser_Selected(sender As Object, e As RoutedEventArgs)
-        If cv.InkCanvas1.EditingMode <> InkCanvasEditingMode.EraseByStroke And
-                cv.InkCanvas1.EditingMode <> InkCanvasEditingMode.EraseByPoint Then
-            cv.InkCanvas1.EditingMode = InkCanvasEditingMode.EraseByPoint
-        End If
-        cv.now_state = BoardView.Now_state_enum.Eraser
+        Set_Edit_Mode(Edit_Mode_Enum.Eraser)
     End Sub
 
     Private Sub Save_MouseUp(sender As Object, e As MouseButtonEventArgs)
