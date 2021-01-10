@@ -9,6 +9,7 @@ Class MainWindow1
     Public marker As DrawingAttributes
     Public eraser As DrawingAttributes
     Public settingwindow As UserControl
+    Public Edit_Mode as Edit_Mode_Enum
 
     Private Save_leftclicked As Boolean
     Private InitAniTimer As New Timer
