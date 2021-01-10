@@ -9,14 +9,7 @@ Public Class BoardView
 
     Public s As List(Of StrokeCollection)
     Public n As Int32
-    Public now_state As Now_state_enum
-    Public Enum Now_state_enum As Integer
-        Cursor = 1
-        Pen = 2
-        Marker = 4
-        Eraser = 8
-        Selectt = 16
-    End Enum
+    public Edit_Mode as Edit_Mode_Enum
 
     Private Const ThreasholdNearbyDistance As Double = 0.01
     Private ReadOnly _currentCanvasStrokes As Dictionary(Of Integer, Stroke)
