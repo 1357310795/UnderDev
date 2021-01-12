@@ -13,8 +13,8 @@ Class MainWindow1
     Public App_Mode As App_Mode_Enum
 
     Private Save_leftclicked As Boolean
-    Private InitAniTimer As New Timer
 
+    Private InitAniTimer As New Timer
     Private el As Ellipse
     Private r As New Random
 
@@ -52,8 +52,6 @@ Class MainWindow1
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
         save_queue = New List(Of save_task)
-
-
     End Sub
 
 #Region "Init"

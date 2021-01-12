@@ -2,11 +2,6 @@
 
 Public Class BoardView
     Inherits UserControl
-    Public scale As Double = 1
-    Public gridmove As Boolean
-    Public gridmovep0 As Point
-    Public gridmoveorip As Point
-
     Public s As List(Of StrokeCollection)
     Public n As Int32
     public Edit_Mode as Edit_Mode_Enum
@@ -82,49 +77,6 @@ Public Class BoardView
             InkCanvas1.Height = MyBackControl.ActualHeight
         End If
     End Sub
-
-    '#Region "Grid Scale&Move"
-
-    '    Private Sub Grid1_PreviewMouseWheel(ByVal sender As Object, ByVal e As MouseWheelEventArgs) Handles Grid1.PreviewMouseWheel
-    '        Dim scale1 As Double
-    '        If e.Delta < 0 Then
-    '            scale1 = scale * 0.9
-    '        Else
-    '            scale1 = scale * 1.1
-    '        End If
-    '        Dim st As ScaleTransform = FindScaleTransform(Grid1.LayoutTransform)
-    '        st.ScaleX = scale1
-    '        st.ScaleY = scale1
-    '        scale = scale1
-    '    End Sub
-
-    '    Private Sub Grid1_MouseMove(sender As Object, e As MouseEventArgs) Handles Grid1.MouseMove
-    '        'Console.WriteLine("MainGrid_MouseMove")
-    '        If gridmove Then
-    '            Dim p1 As Point = Mouse.GetPosition(Me)
-    '            Canvas.SetLeft(Grid1, gridmoveorip.X + p1.X - gridmovep0.X)
-    '            Canvas.SetTop(Grid1, gridmoveorip.Y + p1.Y - gridmovep0.Y)
-    '        End If
-    '    End Sub
-
-    '    Private Sub Grid1_MouseDown(sender As Object, e As MouseButtonEventArgs) Handles Grid1.MouseDown
-    '        'Console.WriteLine("MainGrid_MouseDown")
-    '        gridmove = True
-    '        gridmovep0 = Mouse.GetPosition(Me)
-    '        gridmoveorip = New Point(Canvas.GetLeft(Grid1), Canvas.GetTop(Grid1))
-    '    End Sub
-
-    '    Private Sub Grid1_MouseUp(sender As Object, e As MouseButtonEventArgs) Handles Grid1.MouseUp
-    '        'Console.WriteLine("MainGrid_MouseUp")
-    '        gridmove = False
-    '    End Sub
-
-    '    Private Sub MainGrid_MouseLeave(sender As Object, e As MouseEventArgs) Handles Grid1.MouseLeave
-    '        'Console.WriteLine("MainGrid_MouseLeave")
-    '        gridmove = False
-    '    End Sub
-    '#End Region
-
 #Region "MultiTouch"
     Private Sub StrokeHit(sender As Object, argsHitTester As StrokeHitEventArgs)
         Dim eraseResults = argsHitTester.GetPointEraseResults()
