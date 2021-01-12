@@ -5,7 +5,7 @@ Public Class BoardView
     Public s As List(Of StrokeCollection)
     Public n As Int32
     public Edit_Mode as Edit_Mode_Enum
-
+    Public scale = 1
     Private Const ThreasholdNearbyDistance As Double = 0.01
     Private ReadOnly _currentCanvasStrokes As Dictionary(Of Integer, Stroke)
     Private ReadOnly _lasttimestamp As Dictionary(Of Integer, Double)
