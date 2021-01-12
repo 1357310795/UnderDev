@@ -2,20 +2,10 @@
 
 Public Class BoardView
     Inherits UserControl
-    Public s As List(Of StrokeCollection)
-    Public n As Int32
-    public Edit_Mode as Edit_Mode_Enum
+    Public Edit_Mode As Edit_Mode_Enum
     Public scale = 1
-    Private Const ThreasholdNearbyDistance As Double = 0.01
-    Private ReadOnly _currentCanvasStrokes As Dictionary(Of Integer, Stroke)
-    Private ReadOnly _lasttimestamp As Dictionary(Of Integer, Double)
-    Private ReadOnly _lastpoint As Dictionary(Of Integer, StylusPoint)
-    Private _strokeHitTester As IncrementalStrokeHitTester
-    Private _addingStroke As Stroke
-    Private maxv As Double = 200
 
     Public Sub New()
-
         ' 此调用是设计器所必需的。
         InitializeComponent()
         InkCanvas1.EraserShape = New Ink.RectangleStylusShape(30, 50)
@@ -35,6 +25,8 @@ Public Class BoardView
         AddHandler InkCanvas1.MouseLeave, AddressOf OnMouseUp
     End Sub
 #Region "page_control"
+    Public s As List(Of StrokeCollection)
+    Public n As Int32
     Public Sub ChangePage(x As StrokeCollection)
         InkCanvas1.Strokes = x
     End Sub
@@ -78,6 +70,13 @@ Public Class BoardView
         End If
     End Sub
 #Region "MultiTouch"
+    Private Const ThreasholdNearbyDistance As Double = 0.01
+    Private ReadOnly _currentCanvasStrokes As Dictionary(Of Integer, Stroke)
+    Private ReadOnly _lasttimestamp As Dictionary(Of Integer, Double)
+    Private ReadOnly _lastpoint As Dictionary(Of Integer, StylusPoint)
+    Private _strokeHitTester As IncrementalStrokeHitTester
+    Private _addingStroke As Stroke
+    Private maxv As Double = 200
     Private Sub StrokeHit(sender As Object, argsHitTester As StrokeHitEventArgs)
         Dim eraseResults = argsHitTester.GetPointEraseResults()
         InkCanvas1.Strokes.Remove(argsHitTester.HitStroke)
