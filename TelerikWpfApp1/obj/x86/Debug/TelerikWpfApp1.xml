@@ -144,6 +144,26 @@ SaveSettingMenu
 InitializeComponent
 </summary>
 </member>
+<member name="T:TelerikWpfApp1.CameraSettingMenu">
+<summary>
+CameraSettingMenu
+</summary>
+</member>
+<member name="M:TelerikWpfApp1.CameraSettingMenu.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:TelerikWpfApp1.CameraView">
+<summary>
+CameraView
+</summary>
+</member>
+<member name="M:TelerikWpfApp1.CameraView.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
 <member name="T:TelerikWpfApp1.BoardView">
 <summary>
 BoardView

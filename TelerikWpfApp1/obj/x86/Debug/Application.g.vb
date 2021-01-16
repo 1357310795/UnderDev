@@ -35,6 +35,23 @@ Imports System.Windows.Media.TextFormatting
 Imports System.Windows.Navigation
 Imports System.Windows.Shapes
 Imports System.Windows.Shell
+Imports Telerik.Windows.Controls
+Imports Telerik.Windows.Controls.Animation
+Imports Telerik.Windows.Controls.Behaviors
+Imports Telerik.Windows.Controls.Carousel
+Imports Telerik.Windows.Controls.DragDrop
+Imports Telerik.Windows.Controls.LayoutControl
+Imports Telerik.Windows.Controls.Legend
+Imports Telerik.Windows.Controls.Primitives
+Imports Telerik.Windows.Controls.RadialMenu
+Imports Telerik.Windows.Controls.TransitionEffects
+Imports Telerik.Windows.Controls.TreeView
+Imports Telerik.Windows.Controls.Wizard
+Imports Telerik.Windows.Data
+Imports Telerik.Windows.DragDrop
+Imports Telerik.Windows.DragDrop.Behaviors
+Imports Telerik.Windows.Input.Touch
+Imports Telerik.Windows.Shapes
 
 
 '''<summary>

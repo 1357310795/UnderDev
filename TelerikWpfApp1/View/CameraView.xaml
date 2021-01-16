@@ -6,8 +6,6 @@
              xmlns:local="clr-namespace:TelerikWpfApp1" 
              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:wfi ="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
-             xmlns:aforge ="clr-namespace:AForge.Controls;assembly=AForge.Controls"
              mc:Ignorable="d" Height="Auto" Width="Auto">
     <Canvas x:Name="Canvas1">
         <Grid x:Name="Grid1" Canvas.Left="0" Canvas.Top="0">
@@ -19,14 +17,22 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Grid.LayoutTransform>
-            <WindowsFormsHost Grid.Row="0">
-                <aforge:VideoSourcePlayer x:Name="MyBackControl" Height="1080" Width="1920"/>
-            </WindowsFormsHost>
+            <telerik:RadWebCam
+					Name="webCam"
+					RecordingButtonVisibility="Collapsed"
+					SettingsButtonVisibility="Collapsed"
+					RecordingLabelVisibility="Collapsed"
+					SnapshotButtonVisibility="Collapsed"
+					ToolbarPanelVisibility="Collapsed"
+					MinWidth="0"
+					MinHeight="0"
+					telerik:StyleManager.Theme="Material" />
+            <telerik:CameraSettingsControl x:Name="CameraSettingsControl" Width="500" Height="500" />
             <InkCanvas x:Name="InkCanvas1" 
                        Visibility="Visible" 
                        Background="#008B8B8B" 
-                       Height="{Binding ElementName=MyBackControl,Path=ActualHeight,Mode=OneWay}"
-                       Width="{Binding ElementName=MyBackControl,Path=ActualWidth,Mode=OneWay}" 
+                       Height="{Binding ElementName=Canvas1,Path=ActualHeight,Mode=OneWay}"
+                       Width="{Binding ElementName=Canvas1,Path=ActualWidth,Mode=OneWay}" 
                        IsHitTestVisible="true" RenderTransformOrigin="0.5,0.5" IsManipulationEnabled="False">
             </InkCanvas>
 

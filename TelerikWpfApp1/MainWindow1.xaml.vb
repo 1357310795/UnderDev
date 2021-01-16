@@ -2,6 +2,7 @@
 Imports System.Timers
 Imports System.Windows.Ink
 Imports System.Windows.Media.Animation
+Imports AForge.Video.DirectShow
 
 Class MainWindow1
 
@@ -9,7 +10,7 @@ Class MainWindow1
     Public marker As DrawingAttributes
     Public eraser As DrawingAttributes
     Public settingwindow As UserControl
-    Public Edit_Mode as Edit_Mode_Enum
+    Public Edit_Mode As Edit_Mode_Enum
     Public App_Mode As App_Mode_Enum
 
     Private Save_leftclicked As Boolean
@@ -104,6 +105,7 @@ Class MainWindow1
             Case Edit_Mode_Enum.Cursor
                 cv.InkCanvas1.EditingMode = InkCanvasEditingMode.None
                 CursorRadioButton.IsChecked = True
+                cv.InkCanvas1.IsHitTestVisible = False
             Case Edit_Mode_Enum.Pen
                 cv.InkCanvas1.EditingMode = InkCanvasEditingMode.None
                 cv.InkCanvas1.DefaultDrawingAttributes = pen
@@ -173,7 +175,8 @@ Class MainWindow1
     Private Sub Setting_Selected(sender As Object, e As RoutedEventArgs)
         TryCast(sender, RadioButton).IsChecked = False
         SettingPopup.IsPopupOpen = True
-        GlobalSetting.bv = cv
+        'GlobalSetting.bv = cv
+
     End Sub
 
     Private Sub ListBoxItem_MouseUp(sender As Object, e As MouseEventArgs)
@@ -194,7 +197,7 @@ Class MainWindow1
                     MarkerSetting.popup = MarkerSettingPopup
                 Case "Eraser"
                     EraserSettingPopup.IsPopupOpen = True
-                    EraserSetting.initdrawerandcanvas(cv, eraser, Me)
+                    EraserSetting.initdrawerandcanvas(cv.InkCanvas1, eraser, Me)
                 Case "Cursor"
                     Exit Sub
             End Select
@@ -239,7 +242,7 @@ Class MainWindow1
                 Case 0
                     RenderVisual(cv.InkCanvas1, fullpath, w, h)
                 Case 1
-                    RenderVisual(cv.MyBackControl, fullpath, w, h)
+                    'RenderVisual(cv.MyBackControl, fullpath, w, h)
                 Case 2
                     RenderVisual(cv.Grid1, fullpath, w, h)
             End Select

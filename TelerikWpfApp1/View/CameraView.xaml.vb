@@ -1,17 +1,8 @@
 ﻿Imports System.Windows.Ink
-Imports AForge.Video.DirectShow
-Imports TelerikWpfApp1.AForgeTest
-
 Public Class CameraView
     Inherits UserControl
     Public Edit_Mode As Edit_Mode_Enum
     Public scale = 1
-
-    Private videoDevices As FilterInfoCollection
-    Private videoDevice As VideoCaptureDevice
-    Private videoCapabilities As VideoCapabilities()
-    Private snapshotCapabilities As VideoCapabilities()
-    Public settingpanel As New CameraSettingMenu
     Public Sub New()
         ' 此调用是设计器所必需的。
         InitializeComponent()
@@ -30,26 +21,11 @@ Public Class CameraView
         AddHandler InkCanvas1.PreviewMouseDown, AddressOf OnMouseDown
         AddHandler InkCanvas1.MouseUp, AddressOf OnMouseUp
         AddHandler InkCanvas1.MouseLeave, AddressOf OnMouseUp
-
-        videoDevices = New FilterInfoCollection(FilterCategory.VideoInputDevice)
-
-        If videoDevices.Count <> 0 Then
-
-            For Each device As FilterInfo In videoDevices
-                settingpanel.devicesCombo.Items.Add(device.Name)
-            Next
-        Else
-            settingpanel.devicesCombo.Items.Add("No DirectShow devices found")
-        End If
-
-        settingpanel.devicesCombo.SelectedIndex = 0
-        EnableConnectionControls(True)
+        CameraSettingsControl.WebCam = webCam
     End Sub
 
-    Private Sub EnableConnectionControls(ByVal enable As Boolean)
-        settingpanel.devicesCombo.IsEnabled = enable
-        settingpanel.videoResolutionsCombo.IsEnabled = enable
-    End Sub
+
+
 #Region "page_control"
     Public s As List(Of StrokeCollection)
     Public n As Int32
@@ -88,11 +64,11 @@ Public Class CameraView
     End Function
 #End Region
     Private Sub InkCanvas1_SizeChanged(sender As Object, e As SizeChangedEventArgs) Handles InkCanvas1.SizeChanged
-        If e.NewSize.Width <> MyBackControl.ActualWidth Then
-            InkCanvas1.Width = MyBackControl.ActualWidth
+        If e.NewSize.Width <> webCam.Width Then
+            InkCanvas1.Width = webCam.Width
         End If
-        If e.NewSize.Height <> MyBackControl.ActualHeight Then
-            InkCanvas1.Height = MyBackControl.ActualHeight
+        If e.NewSize.Height <> webCam.Height Then
+            InkCanvas1.Height = webCam.Height
         End If
     End Sub
 #Region "MultiTouch"
