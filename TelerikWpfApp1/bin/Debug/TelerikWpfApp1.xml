@@ -94,16 +94,6 @@ CursorSettingMenu
 InitializeComponent
 </summary>
 </member>
-<member name="T:TelerikWpfApp1.SettingMenu">
-<summary>
-SettingMenu
-</summary>
-</member>
-<member name="M:TelerikWpfApp1.SettingMenu.InitializeComponent">
-<summary>
-InitializeComponent
-</summary>
-</member>
 <member name="T:TelerikWpfApp1.EraserSettingMenu">
 <summary>
 EraserSettingMenu
@@ -144,12 +134,12 @@ SaveSettingMenu
 InitializeComponent
 </summary>
 </member>
-<member name="T:TelerikWpfApp1.CameraSettingMenu">
+<member name="T:TelerikWpfApp1.CamSettingMenu">
 <summary>
-CameraSettingMenu
+CamSettingMenu
 </summary>
 </member>
-<member name="M:TelerikWpfApp1.CameraSettingMenu.InitializeComponent">
+<member name="M:TelerikWpfApp1.CamSettingMenu.InitializeComponent">
 <summary>
 InitializeComponent
 </summary>

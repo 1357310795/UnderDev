@@ -145,9 +145,6 @@
     <Compile Include="ToolsMenu\CursorSettingMenu.xaml.vb">
       <DependentUpon>CursorSettingMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ToolsMenu\SettingMenu.xaml.vb">
-      <DependentUpon>SettingMenu.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ToolsMenu\EraserSettingMenu.xaml.vb">
       <DependentUpon>EraserSettingMenu.xaml</DependentUpon>
     </Compile>
@@ -160,8 +157,8 @@
     <Compile Include="ToolsMenu\SaveSettingMenu.xaml.vb">
       <DependentUpon>SaveSettingMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ToolsMenu\CameraConfigurator.xaml.vb">
-      <DependentUpon>CameraConfigurator.xaml</DependentUpon>
+    <Compile Include="ToolsMenu\SettingMenu.xaml.vb">
+      <DependentUpon>SettingMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CameraView.xaml.vb">
       <DependentUpon>CameraView.xaml</DependentUpon>
@@ -194,10 +191,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ToolsMenu\SettingMenu.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="ToolsMenu\EraserSettingMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -214,9 +207,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ToolsMenu\CameraConfigurator.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="ToolsMenu\SettingMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\CameraView.xaml">
       <Generator>MSBuild:Compile</Generator>

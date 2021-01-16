@@ -26,8 +26,9 @@
 					ToolbarPanelVisibility="Collapsed"
 					MinWidth="0"
 					MinHeight="0"
-					telerik:StyleManager.Theme="Material" />
-            <telerik:CameraSettingsControl x:Name="CameraSettingsControl" Width="500" Height="500" />
+					telerik:StyleManager.Theme="Material" 
+                    Height="{Binding ElementName=Canvas1,Path=ActualHeight,Mode=OneWay}"
+                    Width="{Binding ElementName=Canvas1,Path=ActualWidth,Mode=OneWay}" />
             <InkCanvas x:Name="InkCanvas1" 
                        Visibility="Visible" 
                        Background="#008B8B8B" 

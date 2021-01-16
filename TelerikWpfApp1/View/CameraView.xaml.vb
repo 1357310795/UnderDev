@@ -21,7 +21,6 @@ Public Class CameraView
         AddHandler InkCanvas1.PreviewMouseDown, AddressOf OnMouseDown
         AddHandler InkCanvas1.MouseUp, AddressOf OnMouseUp
         AddHandler InkCanvas1.MouseLeave, AddressOf OnMouseUp
-        CameraSettingsControl.WebCam = webCam
     End Sub
 
 

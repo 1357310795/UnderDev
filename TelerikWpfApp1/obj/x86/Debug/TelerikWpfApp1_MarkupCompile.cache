@@ -4,17 +4,17 @@
 winexe
 VB
 .vb
-C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\
+C:\Users\13573\Source\Repos\UnderDev\TelerikWpfApp1\obj\x86\Debug\
 TelerikWpfApp1
 none
 false
 
-C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\Application.xaml
-14638270926
+C:\Users\13573\Source\Repos\UnderDev\TelerikWpfApp1\Application.xaml
+13347689278
 
-20-1519295586
-24-1549809787
-MainWindow1.xaml;SaveDialog.xaml;SaveNoti1.xaml;ToolsMenu\CursorSettingMenu.xaml;ToolsMenu\SettingMenu.xaml;ToolsMenu\EraserSettingMenu.xaml;ToolsMenu\MarkerSettingMenu.xaml;ToolsMenu\PenSettingMenu.xaml;ToolsMenu\SaveSettingMenu.xaml;ToolsMenu\CameraConfigurator.xaml;View\CameraView.xaml;View\BoardView.xaml;SplashScreenWindow.xaml;YesNoDialog.xaml;
+191815392527
+24-1338918513
+MainWindow1.xaml;SaveDialog.xaml;SaveNoti1.xaml;ToolsMenu\CursorSettingMenu.xaml;ToolsMenu\EraserSettingMenu.xaml;ToolsMenu\MarkerSettingMenu.xaml;ToolsMenu\PenSettingMenu.xaml;ToolsMenu\SaveSettingMenu.xaml;ToolsMenu\SettingMenu.xaml;View\CameraView.xaml;View\BoardView.xaml;SplashScreenWindow.xaml;YesNoDialog.xaml;
 
-True
+False
 

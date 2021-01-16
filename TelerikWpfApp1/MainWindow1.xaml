@@ -6,8 +6,8 @@
 
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Title="HandyDraw BlackBoard Ver. by Hikari✨" 
-        Height="1080" Width="1920" Icon="项目1.ico" 
-        WindowState="Maximized" WindowStyle="None">
+        Height="600" Width="1000" Icon="项目1.ico" 
+        WindowState="Normal" WindowStyle="SingleBorderWindow">
     <Window.Resources>
         <Style x:Key="ListBoxItemStyle" TargetType="{x:Type RadioButton}" 
          BasedOn="{StaticResource MaterialDesignToolRadioButton}">
@@ -192,7 +192,7 @@
                                         <materialDesign:PopupBox.ToggleContent>
                                             <x:Null/>
                                         </materialDesign:PopupBox.ToggleContent>
-                                        <local:CameraConfigurator x:Name="CameraSettingMenu1"/>
+                                        <local:CamSettingMenu x:Name="CameraSettingMenu1"/>
                                     </materialDesign:PopupBox>
                                 </Grid>
                             </RadioButton>

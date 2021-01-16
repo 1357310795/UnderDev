@@ -1,11 +1,17 @@
 ﻿Imports System.Threading.Tasks
 Imports System.Timers
 Imports System.Windows.Ink
-Imports System.Windows.Media.Animation
-Imports AForge.Video.DirectShow
+Imports MediaFoundation
+Imports Telerik.Windows.Controls
 
 Class MainWindow1
-
+    Private Shared ReadOnly SupportedVideoInputTypes As List(Of Guid) = New List(Of Guid)() From {
+            MFMediaType.I420,
+            MFMediaType.IYUV,
+            MFMediaType.NV12,
+            MFMediaType.YUY2,
+            MFMediaType.YV12
+        }
     Public pen As DrawingAttributes
     Public marker As DrawingAttributes
     Public eraser As DrawingAttributes
@@ -53,6 +59,17 @@ Class MainWindow1
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
         save_queue = New List(Of save_task)
+
+        Dim cameraDevices = RadWebCam.GetVideoCaptureDevices()
+
+        If cameraDevices.Count > 0 Then
+            Dim defaultCamera = cameraDevices(0)
+            Dim videoFormats = RadWebCam.GetVideoFormats(defaultCamera).OrderByDescending(Function(x) x.FrameSizeHeight).ThenByDescending(Function(x) x.EffectiveFrameRate)
+            Dim defaultFormat = videoFormats.FirstOrDefault(Function(f) SupportedVideoInputTypes.Contains(f.SubType))
+            cv.webCam.Initialize(defaultCamera, defaultFormat)
+            cv.webCam.Start()
+        End If
+        CameraSettingMenu1.Camera = cv.webCam
     End Sub
 
 #Region "Init"
@@ -174,6 +191,7 @@ Class MainWindow1
 
     Private Sub Setting_Selected(sender As Object, e As RoutedEventArgs)
         TryCast(sender, RadioButton).IsChecked = False
+
         SettingPopup.IsPopupOpen = True
         'GlobalSetting.bv = cv
 
