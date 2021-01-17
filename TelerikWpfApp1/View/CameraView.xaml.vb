@@ -23,7 +23,37 @@ Public Class CameraView
         AddHandler InkCanvas1.MouseLeave, AddressOf OnMouseUp
     End Sub
 
+#Region "Scale&Move"
 
+    Private Sub Canvas1_ManipulationStarting(ByVal sender As Object, ByVal e As ManipulationStartingEventArgs)
+        e.ManipulationContainer = Canvas1
+    End Sub
+
+    Private Sub Canvas1_ManipulationStarted(ByVal sender As Object, ByVal e As ManipulationStartedEventArgs)
+    End Sub
+
+    Private Sub Canvas1_ManipulationDelta(ByVal sender As Object, ByVal e As ManipulationDeltaEventArgs)
+        If Edit_Mode <> Edit_Mode_Enum.Cursor Then Exit Sub
+        Dim scale = e.DeltaManipulation.Scale
+        Dim expansion = e.DeltaManipulation.Expansion
+        Dim rotation = e.DeltaManipulation.Rotation
+        Dim translation = e.DeltaManipulation.Translation
+        Dim cumulativeScale = e.CumulativeManipulation.Scale
+        Dim cumulativeExpansion = e.CumulativeManipulation.Expansion
+        Dim cumulativeRotation = e.CumulativeManipulation.Rotation
+        Dim cumulativeRranslation = e.CumulativeManipulation.Translation
+
+        ScaleTransform.ScaleX *= scale.X
+        ScaleTransform.ScaleY *= scale.Y
+        RotateTransform.Angle += rotation
+        TranslateTransform.X += translation.X
+        TranslateTransform.Y += translation.Y
+    End Sub
+
+    Private Sub Canvas1_ManipulationCompleted(ByVal sender As Object, ByVal e As ManipulationCompletedEventArgs)
+
+    End Sub
+#End Region
 
 #Region "page_control"
     Public s As List(Of StrokeCollection)

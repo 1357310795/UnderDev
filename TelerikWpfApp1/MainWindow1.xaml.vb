@@ -104,24 +104,28 @@ Class MainWindow1
             Case Edit_Mode_Enum.Cursor
                 cv.InkCanvas1.EditingMode = InkCanvasEditingMode.None
                 CursorRadioButton.IsChecked = True
-                cv.InkCanvas1.IsHitTestVisible = False
+                cv.Canvas1.IsManipulationEnabled = True
             Case Edit_Mode_Enum.Pen
                 cv.InkCanvas1.EditingMode = InkCanvasEditingMode.None
                 cv.InkCanvas1.DefaultDrawingAttributes = pen
                 PenRadioButton.IsChecked = True
+                cv.Canvas1.IsManipulationEnabled = False
             Case Edit_Mode_Enum.Selectt
                 cv.InkCanvas1.EditingMode = InkCanvasEditingMode.Select
                 SelectRadioButton.IsChecked = True
+                cv.Canvas1.IsManipulationEnabled = False
             Case Edit_Mode_Enum.Marker
                 cv.InkCanvas1.EditingMode = InkCanvasEditingMode.Ink
                 cv.InkCanvas1.DefaultDrawingAttributes = marker
                 MarkerRadioButton.IsChecked = True
+                cv.Canvas1.IsManipulationEnabled = False
             Case Edit_Mode_Enum.Eraser
                 If cv.InkCanvas1.EditingMode <> InkCanvasEditingMode.EraseByStroke And
                     cv.InkCanvas1.EditingMode <> InkCanvasEditingMode.EraseByPoint Then
                     cv.InkCanvas1.EditingMode = InkCanvasEditingMode.EraseByPoint
                 End If
                 EraserRadioButton.IsChecked = True
+                cv.Canvas1.IsManipulationEnabled = False
         End Select
         Edit_Mode = e
         cv.Edit_Mode = e

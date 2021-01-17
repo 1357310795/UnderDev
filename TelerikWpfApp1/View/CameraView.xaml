@@ -7,17 +7,22 @@
              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" Height="Auto" Width="Auto">
-    <Canvas x:Name="Canvas1">
+    <Canvas x:Name="Canvas1"
+            IsManipulationEnabled="True"
+            ManipulationStarting="Canvas1_ManipulationStarting"
+            ManipulationStarted="Canvas1_ManipulationStarted"
+            ManipulationDelta="Canvas1_ManipulationDelta"
+            ManipulationCompleted="Canvas1_ManipulationCompleted">
         <Grid x:Name="Grid1" Canvas.Left="0" Canvas.Top="0">
-            <Grid.LayoutTransform>
+            <Grid.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleX="1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
+                    <ScaleTransform x:Name="ScaleTransform" />
+                    <SkewTransform />
+                    <RotateTransform x:Name="RotateTransform" />
+                    <TranslateTransform x:Name="TranslateTransform" />
                 </TransformGroup>
-            </Grid.LayoutTransform>
-            <telerik:RadWebCam
+                </Grid.RenderTransform>
+                <telerik:RadWebCam
 					Name="webCam"
 					RecordingButtonVisibility="Collapsed"
 					SettingsButtonVisibility="Collapsed"
