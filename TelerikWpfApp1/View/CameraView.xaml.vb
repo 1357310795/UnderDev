@@ -24,6 +24,7 @@ Public Class CameraView
     End Sub
 
 #Region "Scale&Move"
+    private TotalScale=1,TotalRotation,TotalX,TotalY as double
 
     Private Sub Canvas1_ManipulationStarting(ByVal sender As Object, ByVal e As ManipulationStartingEventArgs)
         e.ManipulationContainer = Canvas1
@@ -42,7 +43,24 @@ Public Class CameraView
         Dim cumulativeExpansion = e.CumulativeManipulation.Expansion
         Dim cumulativeRotation = e.CumulativeManipulation.Rotation
         Dim cumulativeRranslation = e.CumulativeManipulation.Translation
-
+        
+        TotalScale*=scale.X
+        TotalRotation+=rotation
+        TotalX+=translation.X
+        TotalY+=translation.Y
+        
+        Do While TotalRotation<0
+            TotalRotation+=360
+        Loop
+        Do While TotalRotation>=360
+            TotalRotation-=360
+        Loop
+        
+        Dim x,y
+        If TotalRotation<360 Then
+            x=TotalX-Grid1.ActualHeight*TotalScale*Math.sin(TotalRotation)
+            y=TotalY
+        End If
         ScaleTransform.ScaleX *= scale.X
         ScaleTransform.ScaleY *= scale.Y
         RotateTransform.Angle += rotation
