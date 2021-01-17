@@ -692,3 +692,5 @@ C:\Users\13573\Source\Repos\UnderDev\TelerikWpfApp1\obj\x86\Debug\TelerikWpfApp1
 C:\Users\13573\Source\Repos\UnderDev\TelerikWpfApp1\obj\x86\Debug\TelerikWpfApp1.vbproj.GenerateResource.cache
 C:\Users\13573\Source\Repos\UnderDev\TelerikWpfApp1\obj\x86\Debug\TelerikWpfApp1.vbproj.CoreCompileInputs.cache
 C:\Users\13573\Source\Repos\UnderDev\TelerikWpfApp1\obj\x86\Debug\TelerikWpfApp1.vbproj.CopyComplete
+C:\Users\13573\Source\Repos\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\Window1.g.vb
+C:\Users\13573\Source\Repos\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\Window1.baml

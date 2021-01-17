@@ -56,13 +56,13 @@ Partial Public Class CamSettingMenu
 
         If cameraDevices.Count > 0 Then
             Dim defaultCamera = cameraDevices(0)
-            Me.cameraDevicesComboBox.SelectedItem = defaultCamera
-            Me.UpdateVideoFormats(defaultCamera)
+            Me.cameraDevicesComboBox.SelectedIndex = 0
+            'Me.UpdateVideoFormats(defaultCamera)
         End If
 
         RemoveHandler Me.Camera.CameraError, AddressOf Me.OnCameraError
-        Dim args As EventArgs = New EventArgs()
-        RaiseEvent RestartCameraEvent(Me, args)
+        'Dim args As EventArgs = New EventArgs()
+        'RaiseEvent RestartCameraEvent(Me, args)
     End Sub
 
     Private Sub OnCameraError(ByVal sender As Object, ByVal e As CameraErrorEventArgs)
@@ -99,7 +99,7 @@ Partial Public Class CamSettingMenu
     Private Sub OnCameraDevicesComboBoxSelectionChanged(ByVal sender As Object, ByVal e As SelectionChangedEventArgs)
         Dim selectedCamera = CType(Me.cameraDevicesComboBox.SelectedItem, MediaFoundationDeviceInfo)
         Me.UpdateVideoFormats(selectedCamera)
-        Me.RestartCamera()
+        'Me.RestartCamera()
     End Sub
 
     Friend Sub RestartCamera()
@@ -127,5 +127,11 @@ Partial Public Class CamSettingMenu
         Catch __unusedUnauthorizedAccessException1__ As UnauthorizedAccessException
             Me.IsEnabled = False
         End Try
+    End Sub
+
+    Private Async Sub Button_Click(sender As Object, e As RoutedEventArgs)
+        Dim w As New Window1
+        w.MyCameraSettingsControl.WebCam = Camera
+        w.ShowDialog()
     End Sub
 End Class

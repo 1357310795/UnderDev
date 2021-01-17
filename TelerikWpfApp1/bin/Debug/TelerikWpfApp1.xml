@@ -144,6 +144,16 @@ CamSettingMenu
 InitializeComponent
 </summary>
 </member>
+<member name="T:TelerikWpfApp1.Window1">
+<summary>
+Window1
+</summary>
+</member>
+<member name="M:TelerikWpfApp1.Window1.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
 <member name="T:TelerikWpfApp1.CameraView">
 <summary>
 CameraView

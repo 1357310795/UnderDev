@@ -160,6 +160,9 @@
     <Compile Include="ToolsMenu\SettingMenu.xaml.vb">
       <DependentUpon>SettingMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ToolsMenu\Window1.xaml.vb">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CameraView.xaml.vb">
       <DependentUpon>CameraView.xaml</DependentUpon>
     </Compile>
@@ -210,6 +213,10 @@
     <Page Include="ToolsMenu\SettingMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ToolsMenu\Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CameraView.xaml">
       <Generator>MSBuild:Compile</Generator>

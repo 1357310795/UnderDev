@@ -21,7 +21,7 @@
         <materialDesign:DialogHost x:Name="MainDialogHost2" Identifier="MainDialogHost2">
             <Grid x:Name="MainGrid">
                 <ContentControl x:Name="MainContentControl">
-                    <local:CameraView x:Name="cv" />
+                    <!--<local:CameraView x:Name="cv" />-->
                 </ContentControl>
                 <Grid x:Name="GridTools"
                       HorizontalAlignment="Center" VerticalAlignment="Bottom"
