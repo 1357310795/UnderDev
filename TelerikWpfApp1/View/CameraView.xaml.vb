@@ -1,4 +1,7 @@
 ﻿Imports System.Windows.Ink
+Imports System.Math
+Imports WPFMediaKit.DirectShow.Controls
+
 Public Class CameraView
     Inherits UserControl
     Public Edit_Mode As Edit_Mode_Enum
@@ -21,10 +24,15 @@ Public Class CameraView
         AddHandler InkCanvas1.PreviewMouseDown, AddressOf OnMouseDown
         AddHandler InkCanvas1.MouseUp, AddressOf OnMouseUp
         AddHandler InkCanvas1.MouseLeave, AddressOf OnMouseUp
+
+        If (MultimediaUtil.VideoInputDevices.Any()) Then
+            webCam.VideoCaptureDevice = MultimediaUtil.VideoInputDevices(0)
+            webCam.Play()
+        End If
     End Sub
 
 #Region "Scale&Move"
-    private TotalScale=1,TotalRotation,TotalX,TotalY as double
+    Private TotalScale = 1, TotalRotation, TotalX, TotalY As Double
 
     Private Sub Canvas1_ManipulationStarting(ByVal sender As Object, ByVal e As ManipulationStartingEventArgs)
         e.ManipulationContainer = Canvas1
@@ -43,34 +51,46 @@ Public Class CameraView
         Dim cumulativeExpansion = e.CumulativeManipulation.Expansion
         Dim cumulativeRotation = e.CumulativeManipulation.Rotation
         Dim cumulativeRranslation = e.CumulativeManipulation.Translation
-        
-        TotalScale*=scale.X
-        TotalRotation+=rotation
-        TotalX+=translation.X
-        TotalY+=translation.Y
-        
-        Do While TotalRotation<0
-            TotalRotation+=360
+
+        TotalScale *= scale.X
+        TotalRotation += rotation
+        TotalX += translation.X
+        TotalY += translation.Y
+
+        Do While TotalRotation < 0
+            TotalRotation += 360
         Loop
-        Do While TotalRotation>=360
-            TotalRotation-=360
+        Do While TotalRotation >= 360
+            TotalRotation -= 360
         Loop
-        
-        Dim x,y
-        If TotalRotation<360 Then
-            x=TotalX-Grid1.ActualHeight*TotalScale*Math.sin(TotalRotation)
-            y=TotalY
-        End If
+
+        Dim h As Double = Grid1.ActualHeight * TotalScale
+        Dim w As Double = Grid1.ActualWidth * TotalScale
+        Dim t As Double = TotalRotation / 180 * PI
+        Dim x, y As Double
+        x = min4(h * Cos(-PI / 2 - t), Sqrt(h ^ 2 + w ^ 2) * Cos(-Atan(h / w) - t), 0, w * Cos(-t))
+        y = max4(h * Sin(-PI / 2 - t), Sqrt(h ^ 2 + w ^ 2) * Sin(-Atan(h / w) - t), 0, w * Sin(-t))
+
         ScaleTransform.ScaleX *= scale.X
         ScaleTransform.ScaleY *= scale.Y
         RotateTransform.Angle += rotation
-        TranslateTransform.X += translation.X
-        TranslateTransform.Y += translation.Y
+        Canvas.SetLeft(Grid1, TotalX + x)
+        Canvas.SetTop(Grid1, TotalY + y)
+        t1.Text = TotalX.ToString + "," + TotalY.ToString
+        t2.Text = x.ToString + "," + y.ToString
     End Sub
 
     Private Sub Canvas1_ManipulationCompleted(ByVal sender As Object, ByVal e As ManipulationCompletedEventArgs)
 
     End Sub
+
+    Private Function max4(ByVal x1 As Double, ByVal x2 As Double, ByVal x3 As Double, ByVal x4 As Double)
+        Return Math.Max(Math.Max(x1, x2), Math.Max(x3, x4))
+    End Function
+
+    Private Function min4(ByVal x1 As Double, ByVal x2 As Double, ByVal x3 As Double, ByVal x4 As Double)
+        Return Math.Min(Math.Min(x1, x2), Math.Min(x3, x4))
+    End Function
 #End Region
 
 #Region "page_control"

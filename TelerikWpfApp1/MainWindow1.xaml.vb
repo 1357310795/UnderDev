@@ -50,7 +50,6 @@ Class MainWindow1
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
         save_queue = New List(Of save_task)
-        CameraSettingMenu1.Camera = cv.webCam
         MainContentControl.Content = cv
     End Sub
 

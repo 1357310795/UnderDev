@@ -548,7 +548,6 @@ C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\MarkerSettingMenu.g.vb
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\PenSettingMenu.g.vb
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\SaveSettingMenu.g.vb
-C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\CameraSettingMenu.g.vb
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\View\CameraView.g.vb
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\View\BoardView.g.vb
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\SplashScreenWindow.g.vb
@@ -586,7 +585,6 @@ C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\bin\Debug\Ru\MaterialDe
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\bin\Debug\ru-ru\MaterialDesignExtensions.resources.dll
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\bin\Debug\uz-Latn-UZ\MaterialDesignExtensions.resources.dll
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\MainWindow1.baml
-C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\CameraSettingMenu.baml
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\View\CameraView.baml
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\View\BoardView.baml
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\TelerikWpfApp1.g.resources
@@ -610,7 +608,6 @@ C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\bin\Debug\fr\Telerik.Wi
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\bin\Debug\it\Telerik.Windows.Controls.resources.dll
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\bin\Debug\nl\Telerik.Windows.Controls.resources.dll
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\bin\Debug\tr\Telerik.Windows.Controls.resources.dll
-C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\CameraConfigurator.g.vb
 C:\Users\13573\Source\Repos\UnderDev\TelerikWpfApp1\obj\x86\Debug\TelerikWpfApp1.vbprojAssemblyReference.cache
 C:\Users\13573\Source\Repos\UnderDev\TelerikWpfApp1\obj\x86\Debug\SaveDialog.baml
 C:\Users\13573\Source\Repos\UnderDev\TelerikWpfApp1\obj\x86\Debug\SaveNoti1.baml
@@ -694,3 +691,9 @@ C:\Users\13573\Source\Repos\UnderDev\TelerikWpfApp1\obj\x86\Debug\TelerikWpfApp1
 C:\Users\13573\Source\Repos\UnderDev\TelerikWpfApp1\obj\x86\Debug\TelerikWpfApp1.vbproj.CopyComplete
 C:\Users\13573\Source\Repos\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\Window1.g.vb
 C:\Users\13573\Source\Repos\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\Window1.baml
+C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\Window1.g.vb
+C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\Window1.baml
+C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\bin\Debug\DirectShowLib-2005.dll
+C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\bin\Debug\WPFMediaKit.dll
+C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\TelerikWpfApp1_Content.g.vb
+C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\bin\Debug\WPFMediaKit.pdb

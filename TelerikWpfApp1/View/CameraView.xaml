@@ -5,43 +5,57 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TelerikWpfApp1" 
              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d" Height="Auto" Width="Auto">
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:controls="clr-namespace:WPFMediaKit.DirectShow.Controls;assembly=WPFMediaKit"
+             mc:Ignorable="d" Height="Auto" Width="Auto" 
+             >
     <Canvas x:Name="Canvas1"
             IsManipulationEnabled="True"
             ManipulationStarting="Canvas1_ManipulationStarting"
             ManipulationStarted="Canvas1_ManipulationStarted"
             ManipulationDelta="Canvas1_ManipulationDelta"
-            ManipulationCompleted="Canvas1_ManipulationCompleted">
-        <Grid x:Name="Grid1" Canvas.Left="0" Canvas.Top="0">
+            ManipulationCompleted="Canvas1_ManipulationCompleted" >
+        <Grid x:Name="Grid1" Canvas.Left="0" Canvas.Top="0"
+              Height="{Binding ElementName=webCam,Path=ActualHeight,Mode=OneWay}"
+              Width="{Binding ElementName=webCam,Path=ActualWidth,Mode=OneWay}" >
             <Grid.LayoutTransform>
                 <TransformGroup>
                     <ScaleTransform x:Name="ScaleTransform" />
                     <SkewTransform />
-                    <RotateTransform x:Name="RotateTransform" />
+                    <RotateTransform Angle="0" x:Name="RotateTransform" />
                     <TranslateTransform x:Name="TranslateTransform" />
                 </TransformGroup>
-                </Grid.LayoutTransform>
-                <telerik:RadWebCam
+            </Grid.LayoutTransform>
+            <!--<telerik:RadWebCam
 					Name="webCam"
 					RecordingButtonVisibility="Collapsed"
 					SettingsButtonVisibility="Collapsed"
 					RecordingLabelVisibility="Collapsed"
 					SnapshotButtonVisibility="Collapsed"
 					ToolbarPanelVisibility="Collapsed"
-					MinWidth="0"
-					MinHeight="0"
-					telerik:StyleManager.Theme="Material" 
-                    Height="{Binding ElementName=Canvas1,Path=ActualHeight,Mode=OneWay}"
-                    Width="{Binding ElementName=Canvas1,Path=ActualWidth,Mode=OneWay}" />
+					MinWidth="400"
+					MinHeight="300"
+					telerik:StyleManager.Theme="Material" />-->
+            <controls:VideoCaptureElement x:Name="webCam" 
+                                          Grid.Row="1" 
+                                          EnableSampleGrabbing="False" 
+                                          Visibility="Visible"
+                                      LoadedBehavior="Manual"
+                                          MinWidth="400"
+					MinHeight="300"/>
             <InkCanvas x:Name="InkCanvas1" 
                        Visibility="Visible" 
                        Background="#008B8B8B" 
-                       Height="{Binding ElementName=Canvas1,Path=ActualHeight,Mode=OneWay}"
-                       Width="{Binding ElementName=Canvas1,Path=ActualWidth,Mode=OneWay}" 
+                       Height="{Binding ElementName=webCam,Path=ActualHeight,Mode=OneWay}"
+                       Width="{Binding ElementName=webCam,Path=ActualWidth,Mode=OneWay}" 
                        IsHitTestVisible="true" RenderTransformOrigin="0.5,0.5" IsManipulationEnabled="False">
             </InkCanvas>
-
+            
         </Grid>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="{Binding ElementName=Grid1,Path=ActualWidth}"/>
+            <TextBlock x:Name="t1"/>
+            <TextBlock x:Name="t2"/>
+        </StackPanel>
+        
     </Canvas>
 </UserControl>
