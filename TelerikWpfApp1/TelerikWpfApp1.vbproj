@@ -140,6 +140,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <None Include="Class1.vb" />
+    <Compile Include="Class2.vb" />
     <Compile Include="MainWindow1.xaml.vb">
       <DependentUpon>MainWindow1.xaml</DependentUpon>
     </Compile>

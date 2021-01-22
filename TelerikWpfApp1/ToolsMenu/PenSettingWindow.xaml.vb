@@ -13,7 +13,6 @@ Public Class PenSettingWindow
         ColorTabControl.AddHandler(Button.ClickEvent, New RoutedEventHandler(AddressOf ColorButton_Click))
     End Sub
 
-    Public popup As MaterialDesignThemes.Wpf.PopupBox
     Public drawer As DrawingAttributes
 
     Public Sub initdrawer(d As DrawingAttributes)
@@ -55,7 +54,8 @@ Public Class PenSettingWindow
     Private Sub ColorButton_Click(sender As Object, e As RoutedEventArgs)
         Console.WriteLine("ColorButton_Click")
         drawer.Color = TryCast(TryCast(e.OriginalSource, Button).Background, SolidColorBrush).Color
-        popup.IsPopupOpen = False
+        RemoveHandler Me.Deactivated, AddressOf Window_LostFocus
+        Me.Close()
     End Sub
 
     Private Class DisplayTwoDecPlaces
@@ -85,4 +85,26 @@ Public Class PenSettingWindow
             Throw New NotImplementedException
         End Function
     End Class
+
+    Private Sub Window_LostFocus(sender As Object, e As EventArgs)
+        Me.Close()
+    End Sub
+
+    Private Sub Window_Loaded(sender As Object, e As EventArgs)
+        Dim da1 = CubicBezierDoubleAnimation(TimeSpan.FromSeconds(0.3), 0, 1, "0,.71,.47,1")
+        Dim da2 = CubicBezierDoubleAnimation(TimeSpan.FromSeconds(0.2), TimeSpan.FromSeconds(0.5), 0, 1, "0,.71,.47,1")
+        Dim da3 = CubicBezierDoubleAnimation(TimeSpan.FromSeconds(0.4), TimeSpan.FromSeconds(0.7), 0, 1, "0,.71,.47,1")
+        MyScaleTransform1.BeginAnimation(ScaleTransform.ScaleXProperty, da3)
+        MyScaleTransform2.BeginAnimation(ScaleTransform.ScaleXProperty, da2)
+        MyScaleTransform3.BeginAnimation(ScaleTransform.ScaleXProperty, da1)
+        AddHandler da3.Completed, Sub()
+                                      MyScaleTransform1.BeginAnimation(ScaleTransform.ScaleXProperty, Nothing)
+                                      MyScaleTransform2.BeginAnimation(ScaleTransform.ScaleXProperty, Nothing)
+                                      MyScaleTransform3.BeginAnimation(ScaleTransform.ScaleXProperty, Nothing)
+                                  End Sub
+    End Sub
+
+    Private Sub Window_Closed(sender As Object, e As EventArgs)
+        FlushMemory.Flush()
+    End Sub
 End Class

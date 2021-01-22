@@ -154,6 +154,16 @@ Window1
 InitializeComponent
 </summary>
 </member>
+<member name="T:TelerikWpfApp1.PenSettingWindow">
+<summary>
+PenSettingWindow
+</summary>
+</member>
+<member name="M:TelerikWpfApp1.PenSettingWindow.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
 <member name="T:TelerikWpfApp1.CameraView">
 <summary>
 CameraView

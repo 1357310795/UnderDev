@@ -64,20 +64,19 @@ Public Class CameraView
             TotalRotation -= 360
         Loop
 
-        Dim h As Double = Grid1.ActualHeight * TotalScale
-        Dim w As Double = Grid1.ActualWidth * TotalScale
+        Dim h As Double = Grid1.ActualHeight
+        Dim w As Double = Grid1.ActualWidth
         Dim t As Double = TotalRotation / 180 * PI
-        Dim x, y As Double
-        x = min4(h * Cos(-PI / 2 - t), Sqrt(h ^ 2 + w ^ 2) * Cos(-Atan(h / w) - t), 0, w * Cos(-t))
-        y = max4(h * Sin(-PI / 2 - t), Sqrt(h ^ 2 + w ^ 2) * Sin(-Atan(h / w) - t), 0, w * Sin(-t))
+        Dim w1 As Double = Abs(h * Sin(t)) + Abs(w * Cos(t)) * TotalScale
+        Dim h1 As Double = Abs(h * Cos(t)) + Abs(w * Sin(t)) * TotalScale
 
         ScaleTransform.ScaleX *= scale.X
         ScaleTransform.ScaleY *= scale.Y
         RotateTransform.Angle += rotation
-        Canvas.SetLeft(Grid1, TotalX + x)
-        Canvas.SetTop(Grid1, TotalY + y)
-        t1.Text = TotalX.ToString + "," + TotalY.ToString
-        t2.Text = x.ToString + "," + y.ToString
+        Canvas.SetLeft(Grid1, TotalX + w / 2 - w1 / 2)
+        Canvas.SetTop(Grid1, TotalY + h / 2 - h1 / 2)
+        't1.Text = TotalX.ToString + "," + TotalY.ToString
+        't2.Text = x.ToString + "," + y.ToString
     End Sub
 
     Private Sub Canvas1_ManipulationCompleted(ByVal sender As Object, ByVal e As ManipulationCompletedEventArgs)

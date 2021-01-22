@@ -189,10 +189,17 @@ Class MainWindow1
         If TryCast(sender, RadioButton).IsChecked Then
             Select Case TryCast(sender, RadioButton).Tag
                 Case "Pen"
-                    'settingwindow = New PenSetting(pen)
-                    PenSettingPopup.IsPopupOpen = True
-                    PenSetting.initdrawer(pen)
-                    PenSetting.popup = PenSettingPopup
+                    'PenSettingPopup.IsPopupOpen = True
+                    'PenSetting.initdrawer(pen)
+                    'PenSetting.popup = PenSettingPopup
+                    Dim w As New PenSettingWindow
+                    w.initdrawer(pen)
+                    Dim rr = New Rect()
+                    Dim s = ScreenHelper.GetScalingRatio()
+                    w.Show()
+                    w.Top = TryCast(sender, RadioButton).PointToScreen(New Point(0, 0)).Y / s - w.ActualHeight
+                    w.Left = TryCast(sender, RadioButton).PointToScreen(New Point(0, 0)).X / s
+                    w.Focus()
                     Exit Sub
                 Case "Marker"
                     MarkerSettingPopup.IsPopupOpen = True

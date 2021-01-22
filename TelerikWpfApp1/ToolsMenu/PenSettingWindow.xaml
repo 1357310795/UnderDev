@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TelerikWpfApp1" 
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d"
+        mc:Ignorable="d" Topmost="True" Deactivated="Window_LostFocus"
         Title="Window2" Height="457.6" Width="390"
-        WindowStyle="None" ResizeMode="NoResize" Background="{x:Null}"
+        WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded" Background="{x:Null}" Closed="Window_Closed"
         >
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="-1" />
     </WindowChrome.WindowChrome>
-    <StackPanel Height="Auto" Width="370" Margin="10" VerticalAlignment="Bottom">
+    <StackPanel Width="370" Margin="10" VerticalAlignment="Bottom">
         <materialDesign:Card
                 Grid.Row="0"
                 Background="{DynamicResource PrimaryHueMidBrush}"
@@ -23,6 +23,10 @@
                 VerticalAlignment="Top" 
                 Margin="0"
                 materialDesign:ShadowAssist.ShadowDepth="Depth3" FontSize="20">
+            <materialDesign:Card.RenderTransform>
+                <ScaleTransform x:Name="MyScaleTransform1" ScaleX="1" ScaleY="{Binding ScaleX,ElementName=MyScaleTransform1}"/>
+            </materialDesign:Card.RenderTransform>
+            <materialDesign:Card.RenderTransformOrigin>0.5,1</materialDesign:Card.RenderTransformOrigin>
             <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontFamily="Microsoft YaHei UI Light">
                         画笔设置
             </TextBlock>
@@ -34,6 +38,10 @@
                 VerticalAlignment="Top" 
                 Margin="0,10,0,0" Padding="5"
                 materialDesign:ShadowAssist.ShadowDepth="Depth2" FontSize="20" Background="White">
+            <materialDesign:Card.RenderTransform>
+                <ScaleTransform x:Name="MyScaleTransform2" ScaleX="1" ScaleY="{Binding ScaleX,ElementName=MyScaleTransform2}"/>
+            </materialDesign:Card.RenderTransform>
+            <materialDesign:Card.RenderTransformOrigin>0.5,1</materialDesign:Card.RenderTransformOrigin>
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="笔尖" Margin="15,10,0,0" FontSize="20"/>
                 <StackPanel Orientation="Horizontal" Margin="15,0">
@@ -67,6 +75,10 @@
                 VerticalAlignment="Top" 
                 Margin="0,10,0,0" Padding="5"
                 materialDesign:ShadowAssist.ShadowDepth="Depth2" FontSize="20" Background="White">
+            <materialDesign:Card.RenderTransform>
+                <ScaleTransform x:Name="MyScaleTransform3" ScaleX="1" ScaleY="{Binding ScaleX, ElementName=MyScaleTransform3}"/>
+            </materialDesign:Card.RenderTransform>
+            <materialDesign:Card.RenderTransformOrigin>0.5,1</materialDesign:Card.RenderTransformOrigin>
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="颜色" Margin="15,10,10,0" FontSize="20"/>
                 <StackPanel Orientation="Vertical">

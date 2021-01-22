@@ -697,3 +697,5 @@ C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\bin\Debug\DirectShowLib
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\bin\Debug\WPFMediaKit.dll
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\TelerikWpfApp1_Content.g.vb
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\bin\Debug\WPFMediaKit.pdb
+C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\PenSettingWindow.g.vb
+C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\PenSettingWindow.baml

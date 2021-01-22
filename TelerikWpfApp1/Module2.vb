@@ -240,4 +240,27 @@ Module Module2
         da.KeyFrames.Add(sp)
         Return da
     End Function
+    Public Function CubicBezierDoubleAnimation(st As TimeSpan, d As TimeSpan, s As Double, t As Double, Bezier As String) As DoubleAnimationUsingKeyFrames
+        Dim dkf1 As DoubleKeyFrame = New LinearDoubleKeyFrame
+        dkf1.KeyTime = TimeSpan.FromSeconds(0.0)
+        dkf1.Value = s
+        Dim dkf As DoubleKeyFrame = New LinearDoubleKeyFrame
+        dkf.KeyTime = st
+        dkf.Value = s
+        Dim sp As SplineDoubleKeyFrame = New SplineDoubleKeyFrame
+        sp.KeyTime = d
+        Dim p() As String = Bezier.Split(",")
+        Dim controlPoint1 As Point = New Point(p(0), p(1))
+        Dim controlPoint2 As Point = New Point(p(2), p(3))
+        sp.KeySpline = New KeySpline With {
+            .ControlPoint1 = controlPoint1,
+            .ControlPoint2 = controlPoint2
+        }
+        sp.Value = t
+        Dim da As DoubleAnimationUsingKeyFrames = New DoubleAnimationUsingKeyFrames
+        da.KeyFrames.Add(dkf1)
+        da.KeyFrames.Add(dkf)
+        da.KeyFrames.Add(sp)
+        Return da
+    End Function
 End Module
