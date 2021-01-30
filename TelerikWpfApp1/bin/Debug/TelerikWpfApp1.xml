@@ -164,6 +164,16 @@ PenSettingWindow
 InitializeComponent
 </summary>
 </member>
+<member name="T:TelerikWpfApp1.EraserSettingWindow">
+<summary>
+EraserSettingWindow
+</summary>
+</member>
+<member name="M:TelerikWpfApp1.EraserSettingWindow.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
 <member name="T:TelerikWpfApp1.CameraView">
 <summary>
 CameraView

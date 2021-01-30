@@ -7,7 +7,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d" Topmost="True" Deactivated="Window_LostFocus"
         Title="Window2" Height="457.6" Width="390"
-        WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded" Background="{x:Null}" Closed="Window_Closed"
+        WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded" 
+        Background="{x:Null}" Closed="Window_Closed"
         >
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="-1" />

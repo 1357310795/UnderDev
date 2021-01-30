@@ -699,3 +699,5 @@ C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\TelerikWp
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\bin\Debug\WPFMediaKit.pdb
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\PenSettingWindow.g.vb
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\PenSettingWindow.baml
+C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\EraserSettingWindow.g.vb
+C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\EraserSettingWindow.baml

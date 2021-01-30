@@ -175,6 +175,9 @@
     <Compile Include="ToolsMenu\PenSettingWindow.xaml.vb">
       <DependentUpon>PenSettingWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ToolsMenu\EraserSettingWindow.xaml.vb">
+      <DependentUpon>EraserSettingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CameraView.xaml.vb">
       <DependentUpon>CameraView.xaml</DependentUpon>
     </Compile>
@@ -231,6 +234,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ToolsMenu\PenSettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToolsMenu\EraserSettingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

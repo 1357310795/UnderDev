@@ -206,8 +206,16 @@ Class MainWindow1
                     MarkerSetting.initdrawer(marker)
                     MarkerSetting.popup = MarkerSettingPopup
                 Case "Eraser"
-                    EraserSettingPopup.IsPopupOpen = True
-                    EraserSetting.initdrawerandcanvas(cv.InkCanvas1, eraser, Me)
+                    'EraserSettingPopup.IsPopupOpen = True
+                    'EraserSetting.initdrawerandcanvas(cv.InkCanvas1, eraser, Me)
+                    Dim w As New EraserSettingWindow
+                    w.initdrawerandcanvas(cv.InkCanvas1, eraser, Me)
+                    Dim rr = New Rect()
+                    Dim s = ScreenHelper.GetScalingRatio()
+                    w.Show()
+                    w.Top = TryCast(sender, RadioButton).PointToScreen(New Point(0, 0)).Y / s - w.ActualHeight
+                    w.Left = TryCast(sender, RadioButton).PointToScreen(New Point(0, 0)).X / s
+                    w.Focus()
                 Case "Cursor"
                     Exit Sub
             End Select
