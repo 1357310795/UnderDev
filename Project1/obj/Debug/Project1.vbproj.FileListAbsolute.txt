@@ -1,0 +1,7 @@
+C:\Users\Hikari\Documents\GitHub\UnderDev\Project1\obj\Debug\Project1.vbprojAssemblyReference.cache
+C:\Users\Hikari\Documents\GitHub\UnderDev\Project1\obj\Debug\Project1.vbproj.CoreCompileInputs.cache
+C:\Users\Hikari\Documents\GitHub\UnderDev\Project1\bin\Debug\loader.exe.config
+C:\Users\Hikari\Documents\GitHub\UnderDev\Project1\bin\Debug\loader.exe
+C:\Users\Hikari\Documents\GitHub\UnderDev\Project1\bin\Debug\loader.pdb
+C:\Users\Hikari\Documents\GitHub\UnderDev\Project1\obj\Debug\loader.exe
+C:\Users\Hikari\Documents\GitHub\UnderDev\Project1\obj\Debug\loader.pdb

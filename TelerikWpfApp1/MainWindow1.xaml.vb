@@ -51,6 +51,8 @@ Class MainWindow1
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
         save_queue = New List(Of save_task)
         MainContentControl.Content = cv
+        Dim u As New Threading.Thread(AddressOf updatehelper.updatemain)
+        u.Start()
     End Sub
 
 #Region "Init"

@@ -73,6 +73,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\DirectShowLib-2005.dll</HintPath>
     </Reference>
+    <Reference Include="DotNetZip, Version=1.15.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.15.0\lib\net40\DotNetZip.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=1.2.6.1513, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.2.6\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -141,6 +144,7 @@
     </ApplicationDefinition>
     <None Include="Class1.vb" />
     <Compile Include="Class2.vb" />
+    <Compile Include="ftp.vb" />
     <Compile Include="MainWindow1.xaml.vb">
       <DependentUpon>MainWindow1.xaml</DependentUpon>
     </Compile>
@@ -178,6 +182,7 @@
     <Compile Include="ToolsMenu\EraserSettingWindow.xaml.vb">
       <DependentUpon>EraserSettingWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="updatehelper.vb" />
     <Compile Include="View\CameraView.xaml.vb">
       <DependentUpon>CameraView.xaml</DependentUpon>
     </Compile>

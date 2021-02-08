@@ -701,3 +701,6 @@ C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\PenSettingWindow.baml
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\EraserSettingWindow.g.vb
 C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\ToolsMenu\EraserSettingWindow.baml
+C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\bin\Debug\DotNetZip.dll
+C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\bin\Debug\DotNetZip.pdb
+C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\bin\Debug\DotNetZip.xml
