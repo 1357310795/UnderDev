@@ -4,6 +4,7 @@ Imports Ionic.Zip
 
 Public Class updatehelper
     Public Shared f As FtpWeb
+    Public Shared updateok As Boolean = False
     Public Shared Sub updatemain()
         Try
             Dim t1 = New DirectoryInfo(System.Environment.CurrentDirectory)
@@ -25,6 +26,7 @@ Public Class updatehelper
             SetKeyValue("main", "ver", newestver, localini)
         Catch ex As Exception
         End Try
+        updateok = True
     End Sub
     Public Shared Sub UnPack(ByVal PackPath As String, ByVal FolerPath As String)
         Dim zip As New ZipFile

@@ -12,7 +12,14 @@ Public Module m
         Try
             Process.Start(System.Environment.CurrentDirectory & "/" & ver & "/TelerikWpfApp1.exe")
         Catch ex As Exception
-            MsgBox(ex.Message)
+            Try
+                Dim lastver = GetKeyValue("main", "lastver", "", inipath)
+                Process.Start(System.Environment.CurrentDirectory & "/" & lastver & "/TelerikWpfApp1.exe")
+
+            Catch ex1 As Exception
+                MsgBox(ex.Message)
+            End Try
+
         End Try
 
     End Sub
