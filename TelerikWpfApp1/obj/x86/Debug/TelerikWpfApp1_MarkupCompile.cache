@@ -4,16 +4,16 @@
 winexe
 VB
 .vb
-C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\
+F:\GitHub\UnderDev\TelerikWpfApp1\obj\x86\Debug\
 TelerikWpfApp1
 none
 false
 
-C:\Users\Hikari\Documents\GitHub\UnderDev\TelerikWpfApp1\Application.xaml
+F:\GitHub\UnderDev\TelerikWpfApp1\Application.xaml
 161494744336
 1103814426
 25-1273645580
-27334604008
+27-1767560663
 MainWindow1.xaml;SaveDialog.xaml;SaveNoti1.xaml;ToolsMenu\CursorSettingMenu.xaml;ToolsMenu\EraserSettingMenu.xaml;ToolsMenu\MarkerSettingMenu.xaml;ToolsMenu\PenSettingMenu.xaml;ToolsMenu\SaveSettingMenu.xaml;ToolsMenu\SettingMenu.xaml;ToolsMenu\Window1.xaml;ToolsMenu\PenSettingWindow.xaml;ToolsMenu\EraserSettingWindow.xaml;View\CameraView.xaml;View\BoardView.xaml;SplashScreenWindow.xaml;YesNoDialog.xaml;
 
 False
